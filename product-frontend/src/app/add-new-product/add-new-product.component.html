@@ -1,0 +1,85 @@
+<div class="container mt-5">
+    <div class="card p-2">
+        <div class="row">
+            <div class="col-6">
+                <form #productForm="ngForm" (ngSubmit)="addProduct(productForm)">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Product Name</mat-label>
+                        <input matInput placeholder="Product Name" [(ngModel)]="product.productName" name="productName">
+
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Product description</mat-label>
+                        <input matInput placeholder="Product description" [(ngModel)]="product.productDescription"
+                            name="productDescription">
+
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Actual price</mat-label>
+                        <input matInput placeholder="Actual price" [(ngModel)]="product.productActualPrice"
+                            name="productActualPrice">
+
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Discounted price</mat-label>
+                        <input matInput placeholder="Discounted price" [(ngModel)]="product. productDiscountedPrice"
+                            name=" productDiscountedPrice">
+
+                    </mat-form-field>
+                    <div align="end">
+                        <button mat-stroked-button color="primary" style="margin-right: 3px;">Clear</button>
+                        <button type="submit" color="primary"  *ngIf="isNewProduct">Add Product</button>
+                        <button type="submit" *ngIf="!isNewProduct" mat-stroked-button color="primary">Update
+                            Product</button>
+                    </div>
+                </form>
+            </div>
+
+            <!--  <div class="col-6">
+                <input multiple type="file" (change)="onChange($event)">
+
+                <div style="margin-top: 10px;">
+                    <img src="file.url" width="50px" height="50px">
+                </div>
+            </div> -->
+
+            <div class="col-6">
+                <label for="file">File</label>
+                <input type="file" (change)="onFileChange($event)">
+                <!--  <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
+                    <div *ngIf="f.file.errors.required">File is required.</div>
+                </div> -->
+                <div style="margin-top: 10px;">
+                    <img [src]="product.url" *ngIf="product.url" style="height: 100px; width:200px">
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+<!-- <div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <div class="row"> -->
+<!-- loop -->
+<!-- <div *ngFor="let product of products" class="col-md-3">
+                    <div class="product-box">
+                        <a routerLink="/products/{{ product.id }}">
+                            <img [src]="product.imageUrl" class="image-responsive" />
+                            <h1>{{ product.name }}</h1>
+                            <div class="price">
+                                {{ product.unitPrice | currency : "USD" }}
+                            </div>
+                        </a>
+                        <button (click)="addToCart(product)" class="btn btn-primary btn-sm btn-product-bottom">Add to
+                            cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
